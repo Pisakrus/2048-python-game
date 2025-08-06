@@ -1,5 +1,5 @@
 import random
-
+import math
 
 # create the grid
 
@@ -144,26 +144,26 @@ def totalmerge():
                 if cell == adjacent:
                     merge(x, y, adjx, adjy)
 
-
-generate()
-# Main loop
-while True:
-    display()
-    print("Score: " + str(score))
-    direction = input("Make a move (up, down, right, left): ").upper()
-    while not direction in moves:
-        print("Please, try again.")
-        direction = input("Make a move (up, down, right, left): ").upper()
-    totalmoveturn()
-    totalmerge()
-    totalmoveturn()
+if __name__ == "__main__":
+    create_grid()
     generate()
-
-
-    if isgameover():
+    # Main loop
+    while True:
         display()
-        print("Game Over.")
         print("Score: " + str(score))
-        input("Type anything to play again:")
-        create_grid()
+        direction = input("Make a move (up, down, right, left): ").upper()
+        while not direction in moves:
+            print("Please, try again.")
+            direction = input("Make a move (up, down, right, left): ").upper()
+        totalmoveturn()
+        totalmerge()
+        totalmoveturn()
         generate()
+
+        if isgameover():
+            display()
+            print("Game Over.")
+            print("Score: " + str(score))
+            input("Type anything to play again:")
+            create_grid()
+            generate()
