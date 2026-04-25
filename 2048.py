@@ -3,7 +3,7 @@ import math
 
 # create the grid
 
-xsize = 4
+xsize = 6
 ysize = 4
 score = 0
 direction = ""
@@ -19,9 +19,11 @@ create_grid()
 
 #Shows grid in terminal
 def display():
-    for i in grid:
-        print(i)
-
+    print("\n")
+    for row in grid:
+        for i in row:
+            print(i, end="  ")
+        print("\n")
 #Generate a random number in the grid
 def generate(value=0):
     if not value:
@@ -167,3 +169,4 @@ if __name__ == "__main__":
             input("Type anything to play again:")
             create_grid()
             generate()
+
